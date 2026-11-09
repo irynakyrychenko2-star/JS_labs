@@ -184,11 +184,224 @@ container.prepend(btn1)
 table1.style.display = 'none'
 table.style.display = 'none'
 
+let btn3 = document.createElement("button")
+btn3.textContent = "ADD";
+container.appendChild(btn3);
+btn3.style.display = "none";
+
+ let form = document.createElement("form")
+
+    let inputID= document.createElement("input")
+    inputID.type = "number"
+    inputID.placeholder = "Enter ID"
+    form.appendChild(inputID) 
+
+
+    let inputFirstName = document.createElement("input")
+    inputFirstName.type = "text"
+    inputFirstName.placeholder = "Enter First Name"
+    form.appendChild(inputFirstName)
+    
+    let inputLastName = document.createElement("input")
+    inputLastName.type = "text"
+    inputLastName.placeholder = "Enter Last Name"
+    form.appendChild(inputLastName)
+
+    let inputMark= document.createElement("input")
+    inputMark.type = "number"
+    inputMark.placeholder = "Enter Mark"
+    form.appendChild(inputMark)
+
+    let inputFavSubj = document.createElement("input")
+    inputFavSubj.type = "text"
+    inputFavSubj.placeholder = "Enter favourite Subj"
+    form.appendChild(inputFavSubj)
+
+    let popup = document.createElement("dialog")
+    container.appendChild(popup)
+
+
+    popup.appendChild(form)
+
 btn1.addEventListener('click', function(){
     table1.style.display = 'none'
     table.style.display = 'table'
-});
+    
+    btn3.style.display = 'inline-block';
+    btn5.style.display = 'none';
+
+   
+    
+
+    })
+btn3.addEventListener('click', function(){
+      popup.showModal();
+      btn5.style.display = 'none';
+})
+
+     
+let btn4 = document.createElement("button")
+    btn4.type = "submit"
+    btn4.textContent = "submit"
+    form.appendChild(btn4)
+
+    form.addEventListener('submit', function(event){
+    event.preventDefault();
+      let ID1 = inputID.value
+      let tr26 = document.createElement("tr")
+      let tdID = document.createElement("TD")
+      tdID.textContent = ID1
+      tr26.appendChild(tdID)
+
+ 
+      let firstName = inputFirstName.value
+      let tdFirstName = document.createElement("TD")
+      tdFirstName.textContent = firstName 
+      tr26.appendChild(tdFirstName)
+    
+
+      let LastName = inputLastName.value
+    
+      let tdLastName = document.createElement("TD")
+      tdLastName.textContent = LastName
+      tr26.appendChild(tdLastName)
+     
+
+      let Mark1 = inputMark.value
+      
+      let tdMark = document.createElement("TD")
+      tdMark.textContent = Mark1
+      tr26.appendChild(tdMark)
+  
+
+
+      let favsubj1 = inputFavSubj.value
+      
+      let tdfavsubj = document.createElement("TD")
+      tdfavsubj.textContent = favsubj1
+      tr26.appendChild(tdfavsubj)
+      
+      tbody.appendChild(tr26)
+
+    popup.close()
+      form.reset()
+
+    })
+
+
+
+let btn5 = document.createElement("button")
+    btn5.textContent = "ADD"
+    container1.appendChild(btn5)
+    btn5.style.display = 'none';
+
+
+
+   let form1 = document.createElement("form")
+
+    let inputID1= document.createElement("input")
+    inputID1.type = "number"
+    inputID1.placeholder = "Enter ID"
+    form1.appendChild(inputID1) 
+
+
+    let inputFirstName1 = document.createElement("input")
+    inputFirstName1.type = "text"
+    inputFirstName1.placeholder = "Enter First Name"
+    form1.appendChild(inputFirstName1)
+    
+    let inputLastName1 = document.createElement("input")
+    inputLastName1.type = "text"
+    inputLastName1.placeholder = "Enter Last Name"
+    form1.appendChild(inputLastName1)
+
+    let inputHours1= document.createElement("input")
+    inputHours1.type = "number"
+    inputHours1.placeholder = "Enter Hours"
+    form1.appendChild(inputHours1)
+
+    let inputSubj1 = document.createElement("input")
+    inputSubj1.type = "text"
+    inputSubj1.placeholder = "Enter Subj"
+    form1.appendChild(inputSubj1)
+
+    let popup1 = document.createElement("dialog")
+    container1.appendChild(popup1)
+
+
+    popup1.appendChild(form1)
+
 btn2.addEventListener('click', function(){
     table.style.display = 'none'
     table1.style.display = 'table'
-});
+    
+    btn5.style.display = 'inline-block';
+    btn3.style.display = 'none';
+
+    
+    
+})
+btn5.addEventListener('click', function(){
+      popup1.showModal();
+
+
+    })
+     
+let btn6 = document.createElement("button")
+    btn6.type = "submit"
+    btn6.textContent = "submit"
+    form1.appendChild(btn6)
+
+    form1.addEventListener('submit', function(event){
+    event.preventDefault();
+      let ID1 = inputID1.value
+      let tr30 = document.createElement("tr")
+      let tdID = document.createElement("TD")
+      tdID.textContent = ID1
+      tr30.appendChild(tdID)
+
+ 
+      let firstName = inputFirstName1.value
+      let tdFirstName = document.createElement("TD")
+      tdFirstName.textContent = firstName 
+      tr30.appendChild(tdFirstName)
+    
+
+      let LastName = inputLastName1.value
+    
+      let tdLastName = document.createElement("TD")
+      tdLastName.textContent = LastName
+      tr30.appendChild(tdLastName)
+     
+
+      let hours = inputHours1.value
+      
+      let tdHours = document.createElement("TD")
+      tdHours.textContent = hours
+      tr30.appendChild(tdHours)
+  
+
+
+      let favsubj1 = inputSubj1.value
+      let tdsubj = document.createElement("TD")
+      tdsubj.textContent = favsubj1
+      tr30.appendChild(tdsubj)
+      
+      tbody1.appendChild(tr30)
+
+    popup1.close()
+      form1.reset()
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
