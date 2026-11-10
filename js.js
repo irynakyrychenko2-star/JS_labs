@@ -83,8 +83,54 @@ for (let i = 0; i < schoolars.length; i++){
     tdFavSubj.textContent = schoolars[i].favSubj
     tr.appendChild(tdFavSubj)
 
+    let tdtd = document.createElement("TD")
+    tdtd.textContent = "X"
+    tr.appendChild(tdtd)
+
+    tdtd.addEventListener("click", function(){
+            tr.remove();
+    })
+    
+    
+
+
     tbody.appendChild(tr)
 }
+
+let cells = table.querySelectorAll("td")
+cells.forEach(function(td){
+    td.addEventListener('click',function(){
+
+        if (td.textContent == "X"){
+            return
+        }
+        let input_for_ed =  document.createElement("input")
+        let old_value = td.textContent
+        input_for_ed.value = old_value
+
+        td.textContent = " "
+        td.appendChild(input_for_ed)
+        input_for_ed.focus()
+
+        input_for_ed.addEventListener("blur", function() {
+
+            td.textContent = input_for_ed.value;
+        });
+
+        input_for_ed.addEventListener("keydown", function(event) {
+
+            
+            if (event.key === "Enter") {
+
+                input_for_ed.blur();
+            }
+        });
+
+
+    })
+
+})
+
 
 let container1 = document.body
 let table1 = document.createElement("table")
@@ -151,6 +197,7 @@ for (let i = 0; i < teachers.length; i++){
 
     let tdID = document.createElement("TD")
     tdID.textContent = teachers[i].id
+    tdID.focus =
     tr.appendChild(tdID)
 
     let tdFirstName = document.createElement("TD")
@@ -168,6 +215,17 @@ for (let i = 0; i < teachers.length; i++){
     let tdSubj = document.createElement("TD")
     tdSubj.textContent = teachers[i].subj
     tr.appendChild(tdSubj)
+
+    let tdtd = document.createElement("TD")
+    tdtd.textContent = "X"
+    tr.appendChild(tdtd)
+
+
+    tdtd.addEventListener("click", function(){
+            tr.remove();
+    })
+
+
 
     tbody1.appendChild(tr)
 }
@@ -280,9 +338,53 @@ let btn4 = document.createElement("button")
       let tdfavsubj = document.createElement("TD")
       tdfavsubj.textContent = favsubj1
       tr26.appendChild(tdfavsubj)
+
+      let tdtd = document.createElement("TD")
+      tdtd.textContent = "X"
+      tr26.appendChild(tdtd)
+
+       tdtd.addEventListener("click", function(){
+            tr26.remove();
+    })
+
       
       tbody.appendChild(tr26)
 
+      let cells = table.querySelectorAll("td")
+     cells.forEach(function(td){
+    td.addEventListener('click',function(){
+
+        if (td.textContent == "X"){
+            return
+        }
+        let input_for_ed =  document.createElement("input")
+        let old_value = td.textContent
+        input_for_ed.value = old_value
+
+        td.textContent = " "
+        td.appendChild(input_for_ed)
+        input_for_ed.focus()
+
+        input_for_ed.addEventListener("blur", function() {
+
+            td.textContent = input_for_ed.value;
+        });
+
+        input_for_ed.addEventListener("keydown", function(event) {
+
+            
+            if (event.key === "Enter") {
+
+                input_for_ed.blur();
+            }
+        });
+
+
+    })
+
+})
+
+      
     popup.close()
       form.reset()
 
@@ -388,6 +490,51 @@ let btn6 = document.createElement("button")
       tr30.appendChild(tdsubj)
       
       tbody1.appendChild(tr30)
+       
+      let tdtd = document.createElement("TD")
+    tdtd.textContent = "X"
+    tr30.appendChild(tdtd)
+
+
+    tdtd.addEventListener("click", function(){
+            tr30.remove();
+    })
+
+    let cells = table1.querySelectorAll("td")
+cells.forEach(function(td){
+    td.addEventListener('click',function(){
+
+        if (td.textContent == "X"){
+            return
+        }
+        let input_for_ed =  document.createElement("input")
+        let old_value = td.textContent
+        input_for_ed.value = old_value
+
+        td.textContent = " "
+        td.appendChild(input_for_ed)
+        input_for_ed.focus()
+
+        input_for_ed.addEventListener("blur", function() {
+
+            td.textContent = input_for_ed.value;
+        });
+
+        input_for_ed.addEventListener("keydown", function(event) {
+
+            
+            if (event.key === "Enter") {
+
+                input_for_ed.blur();
+            }
+        });
+
+
+    })
+
+})
+
+
 
     popup1.close()
       form1.reset()
