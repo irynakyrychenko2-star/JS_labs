@@ -1,554 +1,464 @@
 
-let container = document.body
-let table = document.createElement("table")
-table.classList.add("simple-table")
+let container = document.body;
 
-container.appendChild(table)
 
-let thead = document.createElement("Thead")
 
-table.appendChild(thead)
+let studentsTable = document.createElement("table");
+studentsTable.classList.add("simple-table");
 
-let trHead = document.createElement("TR")
-thead.appendChild(trHead)
+container.appendChild(studentsTable);
 
-let THID = document.createElement("TH")
+let studentsTableHead = document.createElement("thead");
+studentsTable.appendChild(studentsTableHead);
 
-THID.textContent = "ID"
-trHead.appendChild(THID)
+let studentsHeaderRow = document.createElement("tr");
+studentsTableHead.appendChild(studentsHeaderRow);
 
-let thFirstName = document.createElement("TH")
-thFirstName.textContent = "FirstName"
-trHead.appendChild(thFirstName)
+let studentIdHeader = document.createElement("th");
+studentIdHeader.textContent = "ID";
+studentsHeaderRow.appendChild(studentIdHeader);
 
-let thLastName = document.createElement("TH")
-thLastName.textContent = "Last Name"
-trHead.appendChild(thLastName)
+let studentFirstNameHeader = document.createElement("th");
+studentFirstNameHeader.textContent = "FirstName";
+studentsHeaderRow.appendChild(studentFirstNameHeader);
 
-let thMark = document.createElement("TH")
-thMark.textContent = "Mark"
-trHead.appendChild(thMark)
+let studentLastNameHeader = document.createElement("th");
+studentLastNameHeader.textContent = "Last Name";
+studentsHeaderRow.appendChild(studentLastNameHeader);
 
-let favSubj = document.createElement("TH")
-favSubj.textContent = "Favourite Subj"
-trHead.appendChild(favSubj)
+let studentMarkHeader = document.createElement("th");
+studentMarkHeader.textContent = "Mark";
+studentsHeaderRow.appendChild(studentMarkHeader);
 
-let tbody = document.createElement("TBODY")
-table.appendChild(tbody)
+let studentSubjectHeader = document.createElement("th");
+studentSubjectHeader.textContent = "Favourite Subj";
+studentsHeaderRow.appendChild(studentSubjectHeader);
 
-let schoolars = [
+let studentActionsHeader = document.createElement("th");
+studentActionsHeader.textContent = "Actions";
+studentsHeaderRow.appendChild(studentActionsHeader);
+
+let studentsTableBody = document.createElement("tbody");
+studentsTable.appendChild(studentsTableBody);
+
+let students = [
     {
-        id:1,
+        id: 1,
         firstName: "Ivan",
         lastName: "Ivanov",
         mark: 12,
-        favSubj: "Biology",
+        favoriteSubject: "Biology",
     },
     {
-        id:2,
+        id: 2,
         firstName: "Petro",
         lastName: "Petichenko",
         mark: 10,
-        favSubj: "Literature",
+        favoriteSubject: "Literature",
     },
     {
-        id:3,
+        id: 3,
         firstName: "Vasil",
         lastName: "Lomachenko",
         mark: 8,
-        favSubj: "Math",
+        favoriteSubject: "Math",
     },
 ];
 
-for (let i = 0; i < schoolars.length; i++){
-    let tr = document.createElement("TR");
+for (let index = 0; index < students.length; index++) {
+    let studentRow = document.createElement("tr");
 
-    let tdID = document.createElement("TD")
-    tdID.textContent = schoolars[i].id
-    tr.appendChild(tdID)
+    let studentIdCell = document.createElement("td");
+    studentIdCell.textContent = students[index].id;
+    studentRow.appendChild(studentIdCell);
 
-    let tdFirstName = document.createElement("TD")
-    tdFirstName.textContent = schoolars[i].firstName
-    tr.appendChild(tdFirstName)
+    let studentFirstNameCell = document.createElement("td");
+    studentFirstNameCell.textContent = students[index].firstName;
+    studentRow.appendChild(studentFirstNameCell);
 
-    let tdLastName = document.createElement("TD")
-    tdLastName.textContent = schoolars[i].lastName
-    tr.appendChild(tdLastName)
+    let studentLastNameCell = document.createElement("td");
+    studentLastNameCell.textContent = students[index].lastName;
+    studentRow.appendChild(studentLastNameCell);
 
-    let tdMark = document.createElement("TD")
-    tdMark.textContent = schoolars[i].mark
-    tr.appendChild(tdMark)
+    let studentMarkCell = document.createElement("td");
+    studentMarkCell.textContent = students[index].mark;
+    studentRow.appendChild(studentMarkCell);
 
-    let tdFavSubj = document.createElement("TD")
-    tdFavSubj.textContent = schoolars[i].favSubj
-    tr.appendChild(tdFavSubj)
+    let studentSubjectCell = document.createElement("td");
+    studentSubjectCell.textContent = students[index].favoriteSubject;
+    studentRow.appendChild(studentSubjectCell);
 
-    let tdtd = document.createElement("TD")
-    tdtd.textContent = "X"
-    tr.appendChild(tdtd)
+    let studentActionCell = document.createElement("td");
+    studentActionCell.textContent = "X";
+    studentActionCell.classList.add("action-cell");
+    studentRow.appendChild(studentActionCell);
 
-    tdtd.addEventListener("click", function(){
-            tr.remove();
-    })
-    
-    
-
-
-    tbody.appendChild(tr)
+    studentsTableBody.appendChild(studentRow);
 }
 
-let cells = table.querySelectorAll("td")
-cells.forEach(function(td){
-    td.addEventListener('click',function(){
+// TEACHERS TABLE
 
-        if (td.textContent == "X"){
-            return
-        }
-        let input_for_ed =  document.createElement("input")
-        let old_value = td.textContent
-        input_for_ed.value = old_value
+let teachersTable = document.createElement("table");
+teachersTable.classList.add("simple-table");
 
-        td.textContent = " "
-        td.appendChild(input_for_ed)
-        input_for_ed.focus()
+container.appendChild(teachersTable);
 
-        input_for_ed.addEventListener("blur", function() {
+let teachersTableHead = document.createElement("thead");
+teachersTable.appendChild(teachersTableHead);
 
-            td.textContent = input_for_ed.value;
-        });
+let teachersHeaderRow = document.createElement("tr");
+teachersTableHead.appendChild(teachersHeaderRow);
 
-        input_for_ed.addEventListener("keydown", function(event) {
+let teacherIdHeader = document.createElement("th");
+teacherIdHeader.textContent = "ID";
+teachersHeaderRow.appendChild(teacherIdHeader);
 
-            
-            if (event.key === "Enter") {
+let teacherFirstNameHeader = document.createElement("th");
+teacherFirstNameHeader.textContent = "FirstName";
+teachersHeaderRow.appendChild(teacherFirstNameHeader);
 
-                input_for_ed.blur();
-            }
-        });
+let teacherLastNameHeader = document.createElement("th");
+teacherLastNameHeader.textContent = "Last Name";
+teachersHeaderRow.appendChild(teacherLastNameHeader);
 
+let teacherHoursHeader = document.createElement("th");
+teacherHoursHeader.textContent = "Hours";
+teachersHeaderRow.appendChild(teacherHoursHeader);
 
-    })
+let teacherSubjectHeader = document.createElement("th");
+teacherSubjectHeader.textContent = "Subject";
+teachersHeaderRow.appendChild(teacherSubjectHeader);
 
-})
+let teacherActionsHeader = document.createElement("th");
+teacherActionsHeader.textContent = "Actions";
+teachersHeaderRow.appendChild(teacherActionsHeader);
 
-
-let container1 = document.body
-let table1 = document.createElement("table")
-
-container1.appendChild(table1)
-
-let thead1 = document.createElement("Thead")
-
-table1.appendChild(thead1)
-
-let trHead1 = document.createElement("TR")
-thead1.appendChild(trHead1)
-
-let THID1 = document.createElement("TH")
-
-THID1.textContent = "ID"
-trHead1.appendChild(THID1)
-
-let thFirstName1 = document.createElement("TH")
-thFirstName1.textContent = "FirstName"
-trHead1.appendChild(thFirstName1)
-
-let thLastName1 = document.createElement("TH")
-thLastName1.textContent = "Last Name"
-trHead1.appendChild(thLastName1)
-
-let thMark1 = document.createElement("TH")
-thMark1.textContent = "Hours"
-trHead1.appendChild(thMark1)
-
-let favSubj1 = document.createElement("TH")
-favSubj1.textContent = "Subject"
-trHead1.appendChild(favSubj1)
-
-let tbody1 = document.createElement("TBODY")
-table1.appendChild(tbody1)
+let teachersTableBody = document.createElement("tbody");
+teachersTable.appendChild(teachersTableBody);
 
 let teachers = [
     {
-        id:1,
+        id: 1,
         firstName: "Maria",
         lastName: "Kyrychenko",
         hours: 20,
-        subj: "History",
+        subject: "History",
     },
     {
-        id:2,
+        id: 2,
         firstName: "Irakliy",
         lastName: "Iraklenko",
         hours: 18,
-        subj: "Physical culture",
+        subject: "Physical culture",
     },
     {
-        id:3,
+        id: 3,
         firstName: "Georgiy",
         lastName: "Gorgenko",
         hours: 25,
-        subj: "Physics",
+        subject: "Physics",
     },
 ];
 
-for (let i = 0; i < teachers.length; i++){
-    let tr = document.createElement("TR");
+for (let index = 0; index < teachers.length; index++) {
+    let teacherRow = document.createElement("tr");
 
-    let tdID = document.createElement("TD")
-    tdID.textContent = teachers[i].id
-    tdID.focus =
-    tr.appendChild(tdID)
+    let teacherIdCell = document.createElement("td");
+    teacherIdCell.textContent = teachers[index].id;
+    teacherRow.appendChild(teacherIdCell);
 
-    let tdFirstName = document.createElement("TD")
-    tdFirstName.textContent = teachers[i].firstName
-    tr.appendChild(tdFirstName)
+    let teacherFirstNameCell = document.createElement("td");
+    teacherFirstNameCell.textContent = teachers[index].firstName;
+    teacherRow.appendChild(teacherFirstNameCell);
 
-    let tdLastName = document.createElement("TD")
-    tdLastName.textContent = teachers[i].lastName
-    tr.appendChild(tdLastName)
+    let teacherLastNameCell = document.createElement("td");
+    teacherLastNameCell.textContent = teachers[index].lastName;
+    teacherRow.appendChild(teacherLastNameCell);
 
-    let tdMark = document.createElement("TD")
-    tdMark.textContent = teachers[i].hours
-    tr.appendChild(tdMark)
+    let teacherHoursCell = document.createElement("td");
+    teacherHoursCell.textContent = teachers[index].hours;
+    teacherRow.appendChild(teacherHoursCell);
 
-    let tdSubj = document.createElement("TD")
-    tdSubj.textContent = teachers[i].subj
-    tr.appendChild(tdSubj)
+    let teacherSubjectCell = document.createElement("td");
+    teacherSubjectCell.textContent = teachers[index].subject;
+    teacherRow.appendChild(teacherSubjectCell);
 
-    let tdtd = document.createElement("TD")
-    tdtd.textContent = "X"
-    tr.appendChild(tdtd)
+    let teacherActionCell = document.createElement("td");
+    teacherActionCell.textContent = "X";
+    teacherActionCell.classList.add("action-cell");
+    teacherRow.appendChild(teacherActionCell);
 
-
-    tdtd.addEventListener("click", function(){
-            tr.remove();
-    })
-
-
-
-    tbody1.appendChild(tr)
+    teachersTableBody.appendChild(teacherRow);
 }
 
-let btn1 = document.createElement("button")
-btn1.textContent = "STUDENTS"
-
-let btn2 = document.createElement("button")
-btn2.textContent = "TEACHERS"
-
-container.prepend(btn2)
-container.prepend(btn1)
-
-table1.style.display = 'none'
-table.style.display = 'none'
-
-let btn3 = document.createElement("button")
-btn3.textContent = "ADD";
-container.appendChild(btn3);
-btn3.style.display = "none";
-
- let form = document.createElement("form")
-
-    let inputID= document.createElement("input")
-    inputID.type = "number"
-    inputID.placeholder = "Enter ID"
-    form.appendChild(inputID) 
 
 
-    let inputFirstName = document.createElement("input")
-    inputFirstName.type = "text"
-    inputFirstName.placeholder = "Enter First Name"
-    form.appendChild(inputFirstName)
-    
-    let inputLastName = document.createElement("input")
-    inputLastName.type = "text"
-    inputLastName.placeholder = "Enter Last Name"
-    form.appendChild(inputLastName)
+function enableEditing(tableBody) {
 
-    let inputMark= document.createElement("input")
-    inputMark.type = "number"
-    inputMark.placeholder = "Enter Mark"
-    form.appendChild(inputMark)
+    tableBody.addEventListener("click", function(event) {
 
-    let inputFavSubj = document.createElement("input")
-    inputFavSubj.type = "text"
-    inputFavSubj.placeholder = "Enter favourite Subj"
-    form.appendChild(inputFavSubj)
+        let tableCell = event.target.closest("td");
 
-    let popup = document.createElement("dialog")
-    container.appendChild(popup)
-
-
-    popup.appendChild(form)
-
-btn1.addEventListener('click', function(){
-    table1.style.display = 'none'
-    table.style.display = 'table'
-    
-    btn3.style.display = 'inline-block';
-    btn5.style.display = 'none';
-
-   
-    
-
-    })
-btn3.addEventListener('click', function(){
-      popup.showModal();
-      btn5.style.display = 'none';
-})
-
-     
-let btn4 = document.createElement("button")
-    btn4.type = "submit"
-    btn4.textContent = "submit"
-    form.appendChild(btn4)
-
-    form.addEventListener('submit', function(event){
-    event.preventDefault();
-      let ID1 = inputID.value
-      let tr26 = document.createElement("tr")
-      let tdID = document.createElement("TD")
-      tdID.textContent = ID1
-      tr26.appendChild(tdID)
-
- 
-      let firstName = inputFirstName.value
-      let tdFirstName = document.createElement("TD")
-      tdFirstName.textContent = firstName 
-      tr26.appendChild(tdFirstName)
-    
-
-      let LastName = inputLastName.value
-    
-      let tdLastName = document.createElement("TD")
-      tdLastName.textContent = LastName
-      tr26.appendChild(tdLastName)
-     
-
-      let Mark1 = inputMark.value
-      
-      let tdMark = document.createElement("TD")
-      tdMark.textContent = Mark1
-      tr26.appendChild(tdMark)
-  
-
-
-      let favsubj1 = inputFavSubj.value
-      
-      let tdfavsubj = document.createElement("TD")
-      tdfavsubj.textContent = favsubj1
-      tr26.appendChild(tdfavsubj)
-
-      let tdtd = document.createElement("TD")
-      tdtd.textContent = "X"
-      tr26.appendChild(tdtd)
-
-       tdtd.addEventListener("click", function(){
-            tr26.remove();
-    })
-
-      
-      tbody.appendChild(tr26)
-
-      let cells = table.querySelectorAll("td")
-     cells.forEach(function(td){
-    td.addEventListener('click',function(){
-
-        if (td.textContent == "X"){
-            return
+        if (!tableCell || !tableBody.contains(tableCell)) {
+            return;
         }
-        let input_for_ed =  document.createElement("input")
-        let old_value = td.textContent
-        input_for_ed.value = old_value
 
-        td.textContent = " "
-        td.appendChild(input_for_ed)
-        input_for_ed.focus()
+        if (tableCell.classList.contains("action-cell")) {
+            let tableRow = tableCell.parentElement;
+            tableRow.remove();
+            return;
+        }
 
-        input_for_ed.addEventListener("blur", function() {
+        if (tableCell.querySelector("input")) {
+            return;
+        }
 
-            td.textContent = input_for_ed.value;
-        });
+        let editInput = document.createElement("input");
+        let originalValue = tableCell.textContent;
 
-        input_for_ed.addEventListener("keydown", function(event) {
+        editInput.value = originalValue;
 
-            
+        tableCell.textContent = "";
+        tableCell.appendChild(editInput);
+        editInput.focus();
+
+        function saveChanges() {
+            tableCell.textContent = editInput.value;
+        }
+
+        editInput.addEventListener("blur", saveChanges);
+
+        editInput.addEventListener("keydown", function(event) {
+
             if (event.key === "Enter") {
+                editInput.blur();
+            }
 
-                input_for_ed.blur();
+            if (event.key === "Escape") {
+                editInput.removeEventListener("blur", saveChanges);
+                tableCell.textContent = originalValue;
             }
         });
 
+    });
+}
 
-    })
-
-})
-
-      
-    popup.close()
-      form.reset()
-
-    })
+enableEditing(studentsTableBody);
+enableEditing(teachersTableBody);
 
 
+let studentsTabButton = document.createElement("button");
+studentsTabButton.textContent = "STUDENTS";
 
-let btn5 = document.createElement("button")
-    btn5.textContent = "ADD"
-    container1.appendChild(btn5)
-    btn5.style.display = 'none';
+let teachersTabButton = document.createElement("button");
+teachersTabButton.textContent = "TEACHERS";
 
-
-
-   let form1 = document.createElement("form")
-
-    let inputID1= document.createElement("input")
-    inputID1.type = "number"
-    inputID1.placeholder = "Enter ID"
-    form1.appendChild(inputID1) 
+container.prepend(teachersTabButton);
+container.prepend(studentsTabButton);
 
 
-    let inputFirstName1 = document.createElement("input")
-    inputFirstName1.type = "text"
-    inputFirstName1.placeholder = "Enter First Name"
-    form1.appendChild(inputFirstName1)
-    
-    let inputLastName1 = document.createElement("input")
-    inputLastName1.type = "text"
-    inputLastName1.placeholder = "Enter Last Name"
-    form1.appendChild(inputLastName1)
+let addStudentButton = document.createElement("button");
+addStudentButton.textContent = "ADD";
 
-    let inputHours1= document.createElement("input")
-    inputHours1.type = "number"
-    inputHours1.placeholder = "Enter Hours"
-    form1.appendChild(inputHours1)
+container.appendChild(addStudentButton);
 
-    let inputSubj1 = document.createElement("input")
-    inputSubj1.type = "text"
-    inputSubj1.placeholder = "Enter Subj"
-    form1.appendChild(inputSubj1)
+let studentForm = document.createElement("form");
 
-    let popup1 = document.createElement("dialog")
-    container1.appendChild(popup1)
+let studentIdInput = document.createElement("input");
+studentIdInput.type = "number";
+studentIdInput.placeholder = "Enter ID";
+studentIdInput.required = true;
+studentForm.appendChild(studentIdInput);
 
+let studentFirstNameInput = document.createElement("input");
+studentFirstNameInput.type = "text";
+studentFirstNameInput.placeholder = "Enter First Name";
+studentFirstNameInput.required = true;
+studentForm.appendChild(studentFirstNameInput);
 
-    popup1.appendChild(form1)
+let studentLastNameInput = document.createElement("input");
+studentLastNameInput.type = "text";
+studentLastNameInput.placeholder = "Enter Last Name";
+studentLastNameInput.required = true;
+studentForm.appendChild(studentLastNameInput);
 
-btn2.addEventListener('click', function(){
-    table.style.display = 'none'
-    table1.style.display = 'table'
-    
-    btn5.style.display = 'inline-block';
-    btn3.style.display = 'none';
+let studentMarkInput = document.createElement("input");
+studentMarkInput.type = "number";
+studentMarkInput.placeholder = "Enter Mark";
+studentMarkInput.required = true;
+studentForm.appendChild(studentMarkInput);
 
-    
-    
-})
-btn5.addEventListener('click', function(){
-      popup1.showModal();
+let studentSubjectInput = document.createElement("input");
+studentSubjectInput.type = "text";
+studentSubjectInput.placeholder = "Enter Favourite Subject";
+studentSubjectInput.required = true;
+studentForm.appendChild(studentSubjectInput);
 
+let studentDialog = document.createElement("dialog");
+container.appendChild(studentDialog);
 
-    })
-     
-let btn6 = document.createElement("button")
-    btn6.type = "submit"
-    btn6.textContent = "submit"
-    form1.appendChild(btn6)
+studentDialog.appendChild(studentForm);
 
-    form1.addEventListener('submit', function(event){
+let studentSubmitButton = document.createElement("button");
+studentSubmitButton.type = "submit";
+studentSubmitButton.textContent = "Submit";
+studentForm.appendChild(studentSubmitButton);
+
+addStudentButton.addEventListener("click", function() {
+    studentDialog.showModal();
+});
+
+studentForm.addEventListener("submit", function(event) {
     event.preventDefault();
-      let ID1 = inputID1.value
-      let tr30 = document.createElement("tr")
-      let tdID = document.createElement("TD")
-      tdID.textContent = ID1
-      tr30.appendChild(tdID)
 
- 
-      let firstName = inputFirstName1.value
-      let tdFirstName = document.createElement("TD")
-      tdFirstName.textContent = firstName 
-      tr30.appendChild(tdFirstName)
-    
+    let studentRow = document.createElement("tr");
 
-      let LastName = inputLastName1.value
-    
-      let tdLastName = document.createElement("TD")
-      tdLastName.textContent = LastName
-      tr30.appendChild(tdLastName)
-     
+    let studentIdCell = document.createElement("td");
+    studentIdCell.textContent = studentIdInput.value;
+    studentRow.appendChild(studentIdCell);
 
-      let hours = inputHours1.value
-      
-      let tdHours = document.createElement("TD")
-      tdHours.textContent = hours
-      tr30.appendChild(tdHours)
-  
+    let studentFirstNameCell = document.createElement("td");
+    studentFirstNameCell.textContent = studentFirstNameInput.value;
+    studentRow.appendChild(studentFirstNameCell);
 
+    let studentLastNameCell = document.createElement("td");
+    studentLastNameCell.textContent = studentLastNameInput.value;
+    studentRow.appendChild(studentLastNameCell);
 
-      let favsubj1 = inputSubj1.value
-      let tdsubj = document.createElement("TD")
-      tdsubj.textContent = favsubj1
-      tr30.appendChild(tdsubj)
-      
-      tbody1.appendChild(tr30)
-       
-      let tdtd = document.createElement("TD")
-    tdtd.textContent = "X"
-    tr30.appendChild(tdtd)
+    let studentMarkCell = document.createElement("td");
+    studentMarkCell.textContent = studentMarkInput.value;
+    studentRow.appendChild(studentMarkCell);
 
+    let studentSubjectCell = document.createElement("td");
+    studentSubjectCell.textContent = studentSubjectInput.value;
+    studentRow.appendChild(studentSubjectCell);
 
-    tdtd.addEventListener("click", function(){
-            tr30.remove();
-    })
+    let studentActionCell = document.createElement("td");
+    studentActionCell.textContent = "X";
+    studentActionCell.classList.add("action-cell");
+    studentRow.appendChild(studentActionCell);
 
-    let cells = table1.querySelectorAll("td")
-cells.forEach(function(td){
-    td.addEventListener('click',function(){
+    studentsTableBody.appendChild(studentRow);
 
-        if (td.textContent == "X"){
-            return
-        }
-        let input_for_ed =  document.createElement("input")
-        let old_value = td.textContent
-        input_for_ed.value = old_value
-
-        td.textContent = " "
-        td.appendChild(input_for_ed)
-        input_for_ed.focus()
-
-        input_for_ed.addEventListener("blur", function() {
-
-            td.textContent = input_for_ed.value;
-        });
-
-        input_for_ed.addEventListener("keydown", function(event) {
-
-            
-            if (event.key === "Enter") {
-
-                input_for_ed.blur();
-            }
-        });
-
-
-    })
-
-})
+    studentDialog.close();
+    studentForm.reset();
+});
 
 
 
-    popup1.close()
-      form1.reset()
+let addTeacherButton = document.createElement("button");
+addTeacherButton.textContent = "ADD";
 
-    })
+container.appendChild(addTeacherButton);
+
+let teacherForm = document.createElement("form");
+
+let teacherIdInput = document.createElement("input");
+teacherIdInput.type = "number";
+teacherIdInput.placeholder = "Enter ID";
+teacherIdInput.required = true;
+teacherForm.appendChild(teacherIdInput);
+
+let teacherFirstNameInput = document.createElement("input");
+teacherFirstNameInput.type = "text";
+teacherFirstNameInput.placeholder = "Enter First Name";
+teacherFirstNameInput.required = true;
+teacherForm.appendChild(teacherFirstNameInput);
+
+let teacherLastNameInput = document.createElement("input");
+teacherLastNameInput.type = "text";
+teacherLastNameInput.placeholder = "Enter Last Name";
+teacherLastNameInput.required = true;
+teacherForm.appendChild(teacherLastNameInput);
+
+let teacherHoursInput = document.createElement("input");
+teacherHoursInput.type = "number";
+teacherHoursInput.placeholder = "Enter Hours";
+teacherHoursInput.required = true;
+teacherForm.appendChild(teacherHoursInput);
+
+let teacherSubjectInput = document.createElement("input");
+teacherSubjectInput.type = "text";
+teacherSubjectInput.placeholder = "Enter Subject";
+teacherSubjectInput.required = true;
+teacherForm.appendChild(teacherSubjectInput);
+
+let teacherDialog = document.createElement("dialog");
+container.appendChild(teacherDialog);
+
+teacherDialog.appendChild(teacherForm);
+
+let teacherSubmitButton = document.createElement("button");
+teacherSubmitButton.type = "submit";
+teacherSubmitButton.textContent = "Submit";
+teacherForm.appendChild(teacherSubmitButton);
+
+addTeacherButton.addEventListener("click", function() {
+    teacherDialog.showModal();
+});
+
+teacherForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let teacherRow = document.createElement("tr");
+
+    let teacherIdCell = document.createElement("td");
+    teacherIdCell.textContent = teacherIdInput.value;
+    teacherRow.appendChild(teacherIdCell);
+
+    let teacherFirstNameCell = document.createElement("td");
+    teacherFirstNameCell.textContent = teacherFirstNameInput.value;
+    teacherRow.appendChild(teacherFirstNameCell);
+
+    let teacherLastNameCell = document.createElement("td");
+    teacherLastNameCell.textContent = teacherLastNameInput.value;
+    teacherRow.appendChild(teacherLastNameCell);
+
+    let teacherHoursCell = document.createElement("td");
+    teacherHoursCell.textContent = teacherHoursInput.value;
+    teacherRow.appendChild(teacherHoursCell);
+
+    let teacherSubjectCell = document.createElement("td");
+    teacherSubjectCell.textContent = teacherSubjectInput.value;
+    teacherRow.appendChild(teacherSubjectCell);
+
+    let teacherActionCell = document.createElement("td");
+    teacherActionCell.textContent = "X";
+    teacherActionCell.classList.add("action-cell");
+    teacherRow.appendChild(teacherActionCell);
+
+    teachersTableBody.appendChild(teacherRow);
+
+    teacherDialog.close();
+    teacherForm.reset();
+});
+
+studentsTable.classList.remove("hidden");
+teachersTable.classList.add("hidden");
+
+addStudentButton.classList.remove("hidden");
+addTeacherButton.classList.add("hidden");
 
 
 
+studentsTabButton.addEventListener("click", function() {
+
+    studentsTable.classList.remove("hidden");
+    teachersTable.classList.add("hidden");
+
+    addStudentButton.classList.remove("hidden");
+    addTeacherButton.classList.add("hidden");
+
+});
 
 
 
+teachersTabButton.addEventListener("click", function() {
 
+    studentsTable.classList.add("hidden");
+    teachersTable.classList.remove("hidden");
 
+    addStudentButton.classList.add("hidden");
+    addTeacherButton.classList.remove("hidden");
 
-
-
-
+});
